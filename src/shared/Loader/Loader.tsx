@@ -9,8 +9,7 @@ interface LoaderProps {
 const Loader = ({className}: LoaderProps) => {
 
     return (
-        <div className={classNames('page__loader', {}, [className])}>
-            <div className="lds-spinner">
+        <div className={classNames('lds-spinner', {}, [className])}>
                 <div />
                 <div />
                 <div />
@@ -23,7 +22,6 @@ const Loader = ({className}: LoaderProps) => {
                 <div />
                 <div />
                 <div />
-            </div>
         </div>
     );
 };
