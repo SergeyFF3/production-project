@@ -3,10 +3,9 @@
 @import 'themes/dark';
 @import 'themes/normal';
 
-.app,
-.app_modal {
+body {
   font: var(--font-m);
-  color: var(--primary-color);
+  color: #0232c2;
 }
 
 .app {
