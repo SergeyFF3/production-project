@@ -14,10 +14,12 @@ interface LoginModalProps {
 const LoginModal = ({className, isOpen, onClose}: LoginModalProps) => {
 
     return (
-        <Modal onClose={onClose}
+        <Modal
+            onClose={onClose}
                isOpen={isOpen}
-               className={classNames(cls.LoginModal, {}, [className])}>
-           <LoginForm/>
+               className={classNames(cls.LoginModal, {}, [className])}
+        >
+                <LoginForm onSuccess={onClose}/>
         </Modal>
     );
 };

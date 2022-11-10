@@ -2,13 +2,38 @@
   height: calc(100vh - var(--navbar-height));
   width: 300px;
   background: var(--inverted-bg-color);
-
   position: relative;
   transition: width .3s;
 }
 
+.items {
+  margin-top: 20px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+}
+
+.lang {
+  margin-left: 20px;
+}
+
+.collapsedBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
 }
 
 .switchers {
@@ -17,44 +42,5 @@
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.lang {
-  margin-left: 28px;
-}
-
-.links {
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.mainLink {
-  margin-bottom: 10px;
-}
-
-.toggle {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  width: 30px;
-  right: -30px;
-  bottom: 100px;
-  background: var(--inverted-bg-color);
-  transform: rotate(90deg);
-}
-
-.leftArrow,
-.rightArrow {
-  height: 13px;
-  width: 13px;
-}
-
-.leftArrow {
-  transform: rotate(-180deg);
+  margin-right: 20px;
 }

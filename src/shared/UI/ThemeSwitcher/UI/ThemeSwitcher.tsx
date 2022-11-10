@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
     theme?: Theme
 }
 
-const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
+const ThemeSwitcher = React.memo(({className}: ThemeSwitcherProps) => {
 
     const {theme, toggleTheme} = useTheme()
 
@@ -24,6 +24,6 @@ const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
             {theme === Theme.DARK ? <DarkIcon/> : <LightIcon/>}
         </Button>
     );
-};
+});
 
 export default ThemeSwitcher;

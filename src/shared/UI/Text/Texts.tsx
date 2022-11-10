@@ -14,7 +14,7 @@ interface TextsProps {
     theme?: TextsTheme
 }
 
-const Texts = (props: TextsProps) => {
+const Texts = React.memo((props: TextsProps) => {
 
     const {
         title,
@@ -29,6 +29,6 @@ const Texts = (props: TextsProps) => {
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );
-};
+});
 
 export default Texts;

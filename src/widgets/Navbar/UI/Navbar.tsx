@@ -11,11 +11,11 @@ interface NavbarProps {
     className?: string
 }
 
-const Navbar = ({className}: NavbarProps) => {
+const Navbar = React.memo(({className}: NavbarProps) => {
 
     const {t} = useTranslation()
 
-    const [ isAuthModal, setIsAuthModal] = React.useState(false)
+    const [isAuthModal, setIsAuthModal] = React.useState(false)
 
     const dispatch = useDispatch()
 
@@ -54,12 +54,12 @@ const Navbar = ({className}: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            {isAuthModal && <LoginModal
+              isOpen={isAuthModal}
+              onClose={onCloseModal}
+            />}
         </div>
     );
-};
+});
 
 export default Navbar;

@@ -8,7 +8,7 @@ interface LangSwitcherProps {
     className?: string
 }
 
-const LangSwitcher = ({className}: LangSwitcherProps) => {
+const LangSwitcher = React.memo(({className}: LangSwitcherProps) => {
 
     const {t, i18n} = useTranslation()
 
@@ -25,6 +25,6 @@ const LangSwitcher = ({className}: LangSwitcherProps) => {
             {t('Язык')}
         </Button>
     );
-};
+});
 
 export default LangSwitcher;
