@@ -1,3 +1,11 @@
-.Input {
+.readonly {
+  opacity: .7;
+}
 
+.input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  outline: none;
 }

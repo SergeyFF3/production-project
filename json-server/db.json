@@ -1,12 +1,29 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "userId": 1 },
-    { "id": 2, "title": "json-server", "userId": 2 }
+    {
+      "id": 1,
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "userId": 2
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment" },
-    { "id": 2, "body": "some comment2" },
-    { "id": 3, "body": "some comment3" }
+    {
+      "id": 1,
+      "body": "some comment"
+    },
+    {
+      "id": 2,
+      "body": "some comment2"
+    },
+    {
+      "id": 3,
+      "body": "some comment3"
+    }
   ],
   "users": [
     {
@@ -16,13 +33,14 @@
     }
   ],
   "profile": {
-    "first": "Sergey",
-    "lastname": "Matveev",
-    "age": 28,
-    "currency": "RUB",
+    "first": "Sergeycgb",
+    "lastname": "Matveev23df",
+    "age": 283232,
+    "currency": "EUR",
     "country": "Russia",
     "city": "Saint-Petersburg",
-    "username": "admin",
-    "avatar": "https://img3.goodfon.ru/original/1920x1200/d/e3/sankt-peterburg-piter-st-3495.jpg"
+    "username": "admin23",
+    "avatar": "https://img3.goodfon.ru/original/1920x1200/d/e3/sankt-peterburg-piter-st-3495.jpg",
+    "firstname": "Sergeyf"
   }
 }

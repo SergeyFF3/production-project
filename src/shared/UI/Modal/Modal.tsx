@@ -1,5 +1,5 @@
-import React, {ReactNode, useCallback} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
+import React, {MutableRefObject, ReactNode, useCallback} from 'react';
+import {classNames, Mods} from "shared/lib/classNames/classNames";
 import cls from './Modal.module.scss'
 import Portal from "shared/UI/Portal/Portal";
 
@@ -18,7 +18,7 @@ const Modal = (props: ModalProps) => {
 
     const [isClosing, setIsClosing] = React.useState(false)
 
-    const timerRef = React.useRef<ReturnType<typeof setTimeout>>()
+    const timerRef = React.useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -53,7 +53,7 @@ const Modal = (props: ModalProps) => {
         }
     }, [isOpen, onKeyDown])
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
     }

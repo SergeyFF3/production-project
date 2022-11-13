@@ -1,11 +1,12 @@
 import React, {ButtonHTMLAttributes, ReactNode} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames, Mods} from "shared/lib/classNames/classNames";
 import cls from './Button.module.scss'
 
 export enum ThemeButton {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted'
 }
@@ -28,13 +29,13 @@ const Button = React.memo((props: ButtonProps) => {
     const {
         className,
         children,
-        theme,
-        size,
+        theme = ThemeButton.OUTLINE,
+        size = ButtonSize.M,
         disabled,
         ...otherProps
     } = props
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[theme]]: true,
         [cls[size]]: true,
         [cls.disabled]: disabled
