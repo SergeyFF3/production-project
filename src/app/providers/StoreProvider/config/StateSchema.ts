@@ -2,11 +2,13 @@ import {ProfileSchema} from "entities/Profile";
 import {UserSchema} from "entities/User";
 import {LoginSchema} from "features/AuthByUsername";
 import {AxiosInstance} from "axios";
+import {ArticleDetailsSchema} from "entities/Article";
 
 export interface StateSchema {
     user: UserSchema,
     loginForm?: LoginSchema,
-    profile?: ProfileSchema
+    profile?: ProfileSchema,
+    articleDetails?: ArticleDetailsSchema
 }
 
 export interface ThunkExtraArg {
