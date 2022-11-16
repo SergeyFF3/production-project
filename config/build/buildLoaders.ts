@@ -22,8 +22,9 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
                         {
                             locales: ['ru', 'en'],
                             keyAsDefaultValue: true
-                        }
-                    ],
+                        },
+                        isDev && require.resolve('react-refresh/babel')
+                    ].filter(Boolean),
 
                 ]
             },

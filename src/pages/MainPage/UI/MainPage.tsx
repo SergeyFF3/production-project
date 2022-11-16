@@ -6,7 +6,7 @@ const MainPage = React.memo(() => {
     const {t} = useTranslation('main')
 
     return (
-        <div>
+        <div >
             {t('Главная')}
         </div>
     );
