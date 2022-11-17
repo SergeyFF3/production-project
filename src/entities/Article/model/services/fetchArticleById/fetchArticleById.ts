@@ -3,7 +3,6 @@ import { ThunkConfig } from "app/providers/StoreProvider";
 import i18n from "shared/config/i18n/i18n";
 import {Article} from "../../types/article";
 
-
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
     'articles/fetchArticleById',
     async ( articleId, {extra, rejectWithValue} ) => {

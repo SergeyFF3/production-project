@@ -19,8 +19,10 @@
       "img": "https://www.quintessanderson.com/img/js-icon.jpg",
       "views": 1022,
       "createdAt": "02.08.2022",
-      "type": ["IT"],
-      "blocks":  [
+      "type": [
+        "IT"
+      ],
+      "blocks": [
         {
           "id": "1",
           "type": "TEXT",
@@ -113,17 +115,19 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://www.clipartmax.com/png/full/267-2671061_yükle-youssefdibeyoussefdibe-profile-picture-user-male.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
-    }
+      "role": "USER",
+      "avatar": ""
+    }u
   ],
   "profile": {
-    "first": "Sergeycgb",
+    "first": "Sergey",
     "lastname": "Matveev23df",
     "age": 283232,
     "currency": "EUR",
