@@ -35,7 +35,7 @@ export enum ArticleType {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export interface Article {
-    id: number
+    id: string
     title: string
     suptitle: string
     img: string

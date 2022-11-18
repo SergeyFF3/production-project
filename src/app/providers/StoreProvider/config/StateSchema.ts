@@ -4,13 +4,15 @@ import {LoginSchema} from "features/AuthByUsername";
 import {AxiosInstance} from "axios";
 import {ArticleDetailsSchema} from "entities/Article";
 import {ArticleCommentSchema} from "pages/ArticleDetailsPage";
+import {AddCommentFormSchema} from "features/addCommentForm";
 
 export interface StateSchema {
     user: UserSchema,
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
-    articleComment?: ArticleCommentSchema
+    articleComment?: ArticleCommentSchema,
+    addCommentForm?: AddCommentFormSchema
 }
 
 export interface ThunkExtraArg {

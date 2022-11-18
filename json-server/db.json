@@ -108,6 +108,17 @@
       "text": "some comment 4",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "id": "Y4Qr90e"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "eee",
+      "id": "7rm0VWQ"
     }
   ],
   "users": [
@@ -124,17 +135,30 @@
       "password": "123",
       "role": "USER",
       "avatar": ""
-    }u
+    }
   ],
-  "profile": {
-    "first": "Sergey",
-    "lastname": "Matveev23df",
-    "age": 283232,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "Saint-Petersburg",
-    "username": "admin23",
-    "avatar": "https://img3.goodfon.ru/original/1920x1200/d/e3/sankt-peterburg-piter-st-3495.jpg",
-    "firstname": "Sergeyf"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Sergey",
+      "lastname": "Matveev",
+      "age": 283232,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "admin23",
+      "avatar": "https://img3.goodfon.ru/original/1920x1200/d/e3/sankt-peterburg-piter-st-3495.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Ivan",
+      "lastname": "Ivanov",
+      "age": 283232,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "admin23",
+      "avatar": "https://www.clipartmax.com/png/full/267-2671061_yükle-youssefdibeyoussefdibe-profile-picture-user-male.png"
+    }
+  ]
 }

@@ -7,7 +7,12 @@ import {useParams} from 'react-router-dom';
 import Texts from 'shared/UI/Text/Texts';
 import {CommentList} from "entities/Comment";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { fetchCommentByArticleId } from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId'
+import {fetchCommentByArticleId} from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId'
+import {useSelector} from "react-redux";
+import {getArticleComments} from "pages/ArticleDetailsPage";
+import {getArticleCommentsIsLoading} from "../../model/selectors/comments";
+import {AddCommentForm} from "features/addCommentForm";
+import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -21,9 +26,17 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
 
     const dispatch = useAppDispatch()
 
+    const comments = useSelector(getArticleComments.selectAll)
+
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
+
+   const onSendComment = React.useCallback((text: string) => {
+       dispatch(addCommentForArticle(text))
+   }, [dispatch])
+
     React.useEffect( () => {
         dispatch(fetchCommentByArticleId(id))
-    }, [])
+    }, [dispatch])
 
     if (!id) {
         return (
@@ -37,7 +50,11 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <ArticleDetails id={id}/>
             <Texts className={cls.commentTitle} title={t('Комментарии')}/>
-            <CommentList/>
+            <AddCommentForm onSendComment={onSendComment}/>
+            <CommentList
+            isLoading={commentsIsLoading}
+            comments={comments}
+            />
         </div>
     );
 };

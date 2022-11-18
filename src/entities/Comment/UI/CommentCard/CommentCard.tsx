@@ -3,8 +3,10 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from './CommentCard.module.scss'
 import {Comment} from '../../model/types/comment'
 import Avatar from 'shared/UI/Avatar/Avatar';
-import Texts from 'shared/UI/Text/Texts';
+import Texts, {TextSize} from 'shared/UI/Text/Texts';
 import Skeleton from "shared/Skeleton/Skeleton";
+import AppLink from 'shared/UI/AppLink/AppLink';
+import {RoutePath} from "shared/config/routeConfig/routeConfig";
 
 interface CommentCardProps {
     className?: string
@@ -28,18 +30,17 @@ const CommentCard = ({className, comment, isLoading}: CommentCardProps) => {
 
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
-            <div className={cls.header}>
+            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
                 {comment.user.avatar
                     ? <Avatar
-                        className={cls.username}
                         size={30}
                         src={comment.user.avatar}
                     />
                     : null
                 }
-                <Texts title={comment.user.username}/>
-            </div>
-            <Texts text={comment.text}/>
+                <Texts className={cls.username} size={TextSize.M} title={comment.user.username}/>
+            </AppLink>
+            <Texts className={cls.text} text={comment.text}/>
         </div>
     );
 };

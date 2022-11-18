@@ -15,6 +15,7 @@ import {useSelector} from "react-redux";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from 'entities/Currency';
 import {Country} from "entities/Country/model/types/Country";
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
     className?: string
@@ -34,8 +35,12 @@ const ProfilePage = React.memo(({className}: ProfilePageProps) => {
 
     const readonly = useSelector(getProfileReadonly)
 
+    const { id } = useParams<{ id: string }>()
+
     React.useEffect(() => {
-        dispatch(fetchProfileData())
+        if (id) {
+            dispatch(fetchProfileData(id))
+        }
     }, [dispatch])
 
     const onChangeFirstname = useCallback((value: string) => {

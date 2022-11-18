@@ -12,6 +12,8 @@
   "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
   "Выйти": "Logout",
   "Профиль": "Profile",
+  "Отправить": "Send",
   "Укажите валюту": "Specify the currency",
-  "Укажите страну": "Specify the country"
+  "Укажите страну": "Specify the country",
+  "Введите текст комментария": "Enter the comment text"
 }

@@ -21,11 +21,10 @@
 .content {
   padding: 20px;
   border-radius: 12px;
-  background: var(--bg-color);
+  background: white;
   transition: .3s transform;
   transform: scale(.5);
   max-width: 60%;
-  color: #090949;
 }
 
 .opened {

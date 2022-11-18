@@ -5,6 +5,8 @@ import {loginReducer} from "features/AuthByUsername";
 import {profileReducer} from "entities/Profile";
 import {articleDetailsReducer} from "entities/Article";
 import {$api} from "shared/api/api";
+import { articleCommentReducer } from 'pages/ArticleDetailsPage'
+import { addCommentFormReducer } from 'features/addCommentForm'
 
 export function createReduxStore(initialState?: StateSchema) {
 
@@ -12,7 +14,9 @@ export function createReduxStore(initialState?: StateSchema) {
         user: userReducer,
         loginForm: loginReducer,
         profile: profileReducer,
-        articleDetails: articleDetailsReducer
+        articleDetails: articleDetailsReducer,
+        articleComment: articleCommentReducer,
+        addCommentForm: addCommentFormReducer
     }
 
     return configureStore({
