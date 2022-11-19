@@ -18,6 +18,7 @@
       "suptitle": "Что нового в JS за 2022 год?",
       "img": "https://www.quintessanderson.com/img/js-icon.jpg",
       "views": 1022,
+      "userId": "1",
       "createdAt": "02.08.2022",
       "type": [
         "IT"
@@ -119,6 +120,12 @@
       "userId": "1",
       "text": "eee",
       "id": "7rm0VWQ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwerty",
+      "id": "-e1w7Es"
     }
   ],
   "users": [

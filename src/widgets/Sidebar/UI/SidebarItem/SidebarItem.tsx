@@ -2,10 +2,10 @@ import React from 'react';
 import cls from './SidebarItem.module.scss'
 import {useTranslation} from "react-i18next";
 import AppLink, {AppLinkTheme} from "shared/UI/AppLink/AppLink";
-import {SidebarItemType} from "widgets/Sidebar/model/items";
 import {classNames} from "shared/lib/classNames/classNames";
 import {useSelector} from "react-redux";
 import {getUserAuthData} from "entities/User";
+import {SidebarItemType} from "../../model/types/sidebar";
 
 interface SidebarItemProps {
     item: SidebarItemType
