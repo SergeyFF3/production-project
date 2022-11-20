@@ -5,7 +5,8 @@
   }
 
   .icon {
-
+      fill: var(--primary-color);
+    margin-left: 5px;
   }
 
   .header {
@@ -18,7 +19,7 @@
   }
 
   .createdAt {
-
+    margin-left: auto;
   }
 
   .title {
@@ -57,11 +58,6 @@
     position: absolute;
     right: 5px;
     top: 0;
-    display: none;
-
-    &:hover {
-      display: block;
-    }
   }
 
   .imageWrapper {

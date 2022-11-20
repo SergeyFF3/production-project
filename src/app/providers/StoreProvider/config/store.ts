@@ -7,6 +7,7 @@ import {articleDetailsReducer} from "entities/Article";
 import {$api} from "shared/api/api";
 import { articleCommentReducer } from 'pages/ArticleDetailsPage'
 import { addCommentFormReducer } from 'features/addCommentForm'
+import { articlePageReducer } from 'pages/ArticlesPage'
 
 export function createReduxStore(initialState?: StateSchema) {
 
@@ -16,6 +17,7 @@ export function createReduxStore(initialState?: StateSchema) {
         profile: profileReducer,
         articleDetails: articleDetailsReducer,
         articleComment: articleCommentReducer,
+        articlesPage: articlePageReducer,
         addCommentForm: addCommentFormReducer
     }
 

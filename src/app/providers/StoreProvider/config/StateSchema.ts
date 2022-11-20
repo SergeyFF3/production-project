@@ -5,6 +5,7 @@ import {AxiosInstance} from "axios";
 import {ArticleDetailsSchema} from "entities/Article";
 import {ArticleCommentSchema} from "pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "features/addCommentForm";
+import {ArticlePageSchema} from "pages/ArticlesPage";
 
 export interface StateSchema {
     user: UserSchema,
@@ -12,7 +13,8 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
     articleComment?: ArticleCommentSchema,
-    addCommentForm?: AddCommentFormSchema
+    addCommentForm?: AddCommentFormSchema,
+    articlesPage?: ArticlePageSchema
 }
 
 export interface ThunkExtraArg {

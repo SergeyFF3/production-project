@@ -4,6 +4,7 @@ import cls from './ArticleList.module.scss'
 import {useTranslation} from "react-i18next";
 import {Article, ArticleView} from "../../model/types/article";
 import ArticleListItem from "../ArticleListItem/ArticleListItem";
+import ArticleListItemSkeleton from "../ArticleListItem/ArticleListItemSkeleton";
 
 interface ArticleListProps {
     className?: string
@@ -23,12 +24,24 @@ const ArticleList = (props: ArticleListProps) => {
 
     const {t} = useTranslation()
 
+    if (isLoading) {
+        return (
+            <div  className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                {new Array(view === ArticleView.TILE ? 9 : 3)
+                    .fill(0)
+                    .map((item, index) => (
+                        <ArticleListItemSkeleton className={cls.card} view={view}/>
+                    ))}
+            </div>
+        )
+    }
+
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
                 key={article.id}
                 article={article}
-                view={ArticleView.LIST}
+                view={view}
                 className={cls.card}
             />
         )
