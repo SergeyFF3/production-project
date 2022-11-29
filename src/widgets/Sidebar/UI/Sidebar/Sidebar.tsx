@@ -31,7 +31,7 @@ const Sidebar = React.memo(({className}: SidebarProps) => {
     )),[collapsed, sidebarItemsList])
 
     return (
-        <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
+        <menu className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
             <Button
                 className={cls.collapsedBtn}
                 theme={ThemeButton.BACKGROUND_INVERTED}
@@ -47,7 +47,7 @@ const Sidebar = React.memo(({className}: SidebarProps) => {
                 <ThemeSwitcher/>
                 <LangSwitcher className={cls.lang}/>
             </div>
-        </div>
+        </menu>
     );
 });
 

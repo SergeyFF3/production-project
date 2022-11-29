@@ -24,18 +24,6 @@ const ArticleList = (props: ArticleListProps) => {
 
     const {t} = useTranslation()
 
-    if (isLoading) {
-        return (
-            <div  className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {new Array(view === ArticleView.TILE ? 9 : 3)
-                    .fill(0)
-                    .map((item, index) => (
-                        <ArticleListItemSkeleton className={cls.card} view={view}/>
-                    ))}
-            </div>
-        )
-    }
-
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -53,6 +41,11 @@ const ArticleList = (props: ArticleListProps) => {
                 ? article.map(renderArticle)
                 : null
             }
+            {isLoading && new Array(view === ArticleView.TILE ? 9 : 3)
+                .fill(0)
+                .map((item, index) => (
+                    <ArticleListItemSkeleton className={cls.card} view={view}/>
+                ))}
         </div>
     );
 };

@@ -15,6 +15,7 @@ import {AddCommentForm} from "features/addCommentForm";
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 import Button, {ThemeButton} from "shared/UI/Button/Button";
 import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import Page from "shared/UI/Page/Page";
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -48,14 +49,14 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                Статья не найдена
-            </div>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                {t('Статья не найдена')}
+            </Page>
         )
     }
 
     return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
@@ -66,7 +67,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
             isLoading={commentsIsLoading}
             comments={comments}
             />
-        </div>
+        </Page>
     );
 };
 

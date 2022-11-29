@@ -16,6 +16,7 @@ import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from 'entities/Currency';
 import {Country} from "entities/Country/model/types/Country";
 import { useParams } from 'react-router-dom';
+import Page from "shared/UI/Page/Page";
 
 interface ProfilePageProps {
     className?: string
@@ -76,7 +77,7 @@ const ProfilePage = React.memo(({className}: ProfilePageProps) => {
     }, [dispatch])
 
     return (
-        <div className={classNames(cls.ProfilePage, {}, [className])}>
+        <Page className={classNames(cls.ProfilePage, {}, [className])}>
             <ProfilePageHeader/>
             <ProfileCard
                 data={formData}
@@ -92,7 +93,7 @@ const ProfilePage = React.memo(({className}: ProfilePageProps) => {
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
             />
-        </div>
+        </Page>
     );
 });
 

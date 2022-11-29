@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from './ArticlesPage.module.scss'
 import {useTranslation} from "react-i18next";
@@ -10,11 +10,12 @@ import {useSelector} from 'react-redux';
 import {
     getArticlesPageIsLoading,
     getArticlesPageError,
-    getArticlesPageView
+    getArticlesPageView, getArticlesPageNum, getArticlesPageHasMore
 } from "../../model/selectors/articlesPageSelectors/articlesPageSelectors";
 import {ArticleView} from 'entities/Article/model/types/article';
 import {articlePageActions} from '../../model/slices/articlePageSlice'
 import ArticleViewSelector from "features/ArticleViewSelector/ArticleViewSelector";
+import Page from "shared/UI/Page/Page";
 
 interface ArticlesPageProps {
     className?: string
@@ -34,17 +35,35 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
 
     const view = useSelector(getArticlesPageView)
 
+    const page = useSelector(getArticlesPageNum)
+
+    const hasMore = useSelector(getArticlesPageHasMore)
+
     const onChangeView = React.useCallback((view: ArticleView) => {
         dispatch(articlePageActions.setViews(view))
     }, [dispatch])
 
+    const onLoadNextPart = useCallback( () => {
+        if (hasMore && !isLoading) {
+            dispatch(articlePageActions.setPage(page + 1))
+            dispatch(fetchArticlesList({
+                page: page + 1
+            }))
+        }
+    }, [dispatch, page, hasMore, isLoading])
+
     React.useEffect(() => {
-        dispatch(fetchArticlesList())
         dispatch(articlePageActions.initState())
+        dispatch(fetchArticlesList({
+            page: 1
+        }))
     }, [dispatch])
 
     return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>
+        <Page
+            onScrollEnd={onLoadNextPart}
+            className={classNames(cls.ArticlesPage, {}, [className])}
+        >
             <ArticleViewSelector
                 view={view}
                 onViewClick={onChangeView}
@@ -54,7 +73,7 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
                 article={articles}
                 view={view}
             />
-        </div>
+        </Page>
     );
 };
 
