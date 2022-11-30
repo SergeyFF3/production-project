@@ -37,6 +37,7 @@ const ArticleViewSelector = ({className, onViewClick, view}: ArticleViewSelector
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((viewType) => (
                 <Button
+                    key={viewType.view}
                     className={cls.btn}
                     theme={ThemeButton.CLEAR}
                     onClick={onClick(viewType.view)}

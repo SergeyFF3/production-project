@@ -44,7 +44,7 @@ const ArticleList = (props: ArticleListProps) => {
             {isLoading && new Array(view === ArticleView.TILE ? 9 : 3)
                 .fill(0)
                 .map((item, index) => (
-                    <ArticleListItemSkeleton className={cls.card} view={view}/>
+                    <ArticleListItemSkeleton key={index} className={cls.card} view={view}/>
                 ))}
         </div>
     );

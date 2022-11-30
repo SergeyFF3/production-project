@@ -4,18 +4,18 @@ import cls from './ArticlesPage.module.scss'
 import {useTranslation} from "react-i18next";
 import {ArticleList} from 'entities/Article';
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
-import {getArticle} from "../../model/slices/articlePageSlice";
+import {articlePageActions, getArticle} from "../../model/slices/articlePageSlice";
 import {useSelector} from 'react-redux';
 import {
-    getArticlesPageIsLoading,
     getArticlesPageError,
-    getArticlesPageView, getArticlesPageNum, getArticlesPageHasMore
+    getArticlesPageIsLoading,
+    getArticlesPageView
 } from "../../model/selectors/articlesPageSelectors/articlesPageSelectors";
 import {ArticleView} from 'entities/Article/model/types/article';
-import {articlePageActions} from '../../model/slices/articlePageSlice'
 import ArticleViewSelector from "features/ArticleViewSelector/ArticleViewSelector";
-import Page from "shared/UI/Page/Page";
+import Page from "widgets/Page/Page";
+import {fetchNextArticlesPage} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import {initArticlesPage} from "../../model/services/initArticlesPage/initArticlesPage";
 
 interface ArticlesPageProps {
     className?: string
@@ -35,28 +35,20 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
 
     const view = useSelector(getArticlesPageView)
 
-    const page = useSelector(getArticlesPageNum)
-
-    const hasMore = useSelector(getArticlesPageHasMore)
-
     const onChangeView = React.useCallback((view: ArticleView) => {
         dispatch(articlePageActions.setViews(view))
     }, [dispatch])
 
     const onLoadNextPart = useCallback( () => {
-        if (hasMore && !isLoading) {
-            dispatch(articlePageActions.setPage(page + 1))
-            dispatch(fetchArticlesList({
-                page: page + 1
-            }))
-        }
-    }, [dispatch, page, hasMore, isLoading])
+       dispatch(fetchNextArticlesPage())
+    }, [dispatch])
+
+    React.useEffect(() =>{
+        dispatch(fetchNextArticlesPage())
+    },[dispatch])
 
     React.useEffect(() => {
-        dispatch(articlePageActions.initState())
-        dispatch(fetchArticlesList({
-            page: 1
-        }))
+        dispatch(initArticlesPage())
     }, [dispatch])
 
     return (

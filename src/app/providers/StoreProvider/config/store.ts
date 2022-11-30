@@ -8,6 +8,7 @@ import {$api} from "shared/api/api";
 import { articleCommentReducer } from 'pages/ArticleDetailsPage'
 import { addCommentFormReducer } from 'features/addCommentForm'
 import { articlePageReducer } from 'pages/ArticlesPage'
+import { scrollSaveReducer } from 'features/ScrollSave'
 
 export function createReduxStore(initialState?: StateSchema) {
 
@@ -18,6 +19,7 @@ export function createReduxStore(initialState?: StateSchema) {
         articleDetails: articleDetailsReducer,
         articleComment: articleCommentReducer,
         articlesPage: articlePageReducer,
+        scrollSave: scrollSaveReducer,
         addCommentForm: addCommentFormReducer
     }
 

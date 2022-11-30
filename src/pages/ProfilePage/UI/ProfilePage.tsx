@@ -16,7 +16,7 @@ import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from 'entities/Currency';
 import {Country} from "entities/Country/model/types/Country";
 import { useParams } from 'react-router-dom';
-import Page from "shared/UI/Page/Page";
+import Page from "widgets/Page/Page";
 
 interface ProfilePageProps {
     className?: string
